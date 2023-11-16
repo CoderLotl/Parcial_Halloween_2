@@ -1,0 +1,1 @@
+Este proyecto funciona con json-server. Instale json-server hoy mismo, y sea parte del futuro! :D
