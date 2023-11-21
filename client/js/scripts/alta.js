@@ -8,10 +8,10 @@ let DD = new DynamicDrawer();
 let storageManager = new StorageManager();
 let monster = {};
 let monsterLoaded = false;
-let tableHeaders = ['ID', 'Nombre', 'Alias', 'Defensa', 'Miedo', 'Tipo']; // Cabeceras de las tablas
+let tableHeaders = ['Nombre', 'Alias', 'Defensa', 'Miedo', 'Tipo']; // Cabeceras de las tablas
 let inputs = ''; // Array de inputs. Se define luego de la inicializacion
 let inputsDefaultValues = '';  // Valores default de los inputs. Se inicializa con los inputs mismos.
-let inputExceptions = ['id', 'defensa']; // Propiedades del monstruo que no tienen relacion directa con los inputs y requieren de chequeos complejos
+let inputExceptions = ['defensa']; // Propiedades del monstruo que no tienen relacion directa con los inputs y requieren de chequeos complejos
 let initialMonster = {id: '', nombre: '', alias : '', defensa: '', miedo: '', tipo: ''}; // Esquema inicial del monstruo. Sirve como modelo para la instanciacion.
 let timer = 3000; // Timer del spinner
 let url = 'http://localhost:3000/monstruos';
@@ -379,7 +379,8 @@ function SetTableMechanics(tabla)
                 {
                     rowData.push(cells[k].textContent);
                     monster[headers[k].textContent.toLowerCase()] = cells[k].textContent;
-                }                                
+                }
+                monster.id = rows[i].dataset.id;                                
                 console.log(monster);
                 document.getElementsByClassName('siren')[0].classList.remove('hidden');
                 document.getElementById('btn-borrar').classList.remove('hidden');

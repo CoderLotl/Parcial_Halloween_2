@@ -167,10 +167,6 @@ export class DynamicDrawer
             let th = document.createElement('th');
             th.textContent = tableHeaders[i];
             tableBody.appendChild(th);
-            if(tableHeaders[i] == 'ID')
-            {
-                th.classList.add('hidden');
-            }
         }
 
         this.LoadMonstersToTable(table, tableHeaders, monsters);
@@ -186,19 +182,12 @@ export class DynamicDrawer
         {            
             let row = document.createElement('tr');            
             tableBody.appendChild(row);
+            row.dataset.id = mon.id;
             
             for (let i = 0; i < tableHeaders.length; i++)
             {
                 let td = document.createElement('td');
-                if (tableHeaders[i] === 'ID')
-                {
-                    td.classList.add('hidden');
-                    td.textContent = mon.id;
-                }
-                else
-                {
-                    td.textContent = mon[tableHeaders[i].toLowerCase()];
-                }
+                td.textContent = mon[tableHeaders[i].toLowerCase()];                
                 row.appendChild(td);
             }
         });  
